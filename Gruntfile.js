@@ -31,17 +31,9 @@ module.exports = function(grunt) {
     // Configuration to be run (and then tested).
     key2dyn: {
       default_options: {
+				options: {},
         files: {
-          './tmp/': ['test/fixtures/**/*.krs']
-        }
-      },
-      custom_options: {
-        options: {
-          separator: ': ',
-          punctuation: ' !!!'
-        },
-        files: {
-          'tmp/custom_options': ['test/fixtures/testing', 'test/fixtures/123']
+          './tmp/slso': ['test/fixtures/**/*.krs']
         }
       }
     },

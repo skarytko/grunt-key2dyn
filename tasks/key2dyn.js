@@ -42,7 +42,7 @@ module.exports = function(grunt) {
         var src = grunt.file.read(filepath);
 			
 				
-				key2dyn.parseScript(src, function(err, result) {
+				key2dyn.parseXMLScript(src, function(err, result) {
 					if (err) {
 						grunt.log.warn('Failed to parse "' + filepath);
 						return false;
@@ -53,6 +53,7 @@ module.exports = function(grunt) {
 					
 					var destFilepath = '';
 					var filename = '';
+					var contents = '';
 				
 					if (options.format === 'gsl') {
 						contents = key2dyn.gslify(script);
@@ -61,7 +62,7 @@ module.exports = function(grunt) {
 						contents = JSON.stringify(script);
 						filename = basename + '.json';
 					}
-					
+
 					if (!grunt.file.exists(f.dest)) {
 	          grunt.file.mkdir(f.dest);
 	        }
@@ -70,7 +71,7 @@ module.exports = function(grunt) {
 					grunt.file.write(f.dest + filename, contents);
 					
 					// Print a success message.
-					grunt.log.writeln('File "' + f.dest + filename '" created.');
+					grunt.log.writeln('File "' + f.dest + filename + '" created.');
 				});
       });
 		
